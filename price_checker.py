@@ -66,6 +66,7 @@ for timestamp, title, new_price, availability in scraped_data:
     if result:
         old_price = result[0]
         if new_price < old_price:
+            diff = old_price - new_price
             price_changes.append(f"📉 {title}: £{old_price:.2f} → £{new_price:.2f} (DOWN £{diff:.2f})")
             prices_down += 1
         elif new_price > old_price:
